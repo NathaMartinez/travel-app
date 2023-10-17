@@ -13,10 +13,9 @@ import java.util.Date;
 import java.util.Set;
 
 @Entity
-@Table(name="customer")  //link it to the DB
-@Data                    //auto generates getters and setters
+@Table(name="customer")
+@Data
 public class Customer {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -40,7 +39,6 @@ public class Customer {
     @Column(name = "division")
     private Division division;
     @Column(name = "carts")
-    private Set<Cart> carts = new Set<>();
-
+    private Set<Cart> carts;
 
 }
