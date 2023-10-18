@@ -31,7 +31,7 @@ public class Excursion {
     private Date lastUpdate;
 
     @ManyToOne
-    @JoinColumn(name ="vacation", nullable = false)
+    @JoinColumn(name ="vacation_id", nullable = false)
     private Vacation vacation;
 /*
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "cart")

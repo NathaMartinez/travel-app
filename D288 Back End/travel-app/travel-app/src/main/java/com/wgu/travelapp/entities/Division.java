@@ -28,7 +28,7 @@ public class Division {
 
     //TODO check relationship
    @ManyToOne
-    @JoinColumn(name ="country", nullable = false)
+    @JoinColumn(name ="country_id", nullable = false)
     private Country country;
 
 
