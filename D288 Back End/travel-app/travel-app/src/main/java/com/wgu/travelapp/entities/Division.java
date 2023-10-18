@@ -27,7 +27,9 @@ public class Division {
     private Date lastUpdate;
 
     //TODO check relationship
-    @ManyToOne
+   @ManyToOne
     @JoinColumn(name ="country", nullable = false)
     private Country country;
+
+
 }

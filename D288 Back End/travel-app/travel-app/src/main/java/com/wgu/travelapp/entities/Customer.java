@@ -16,7 +16,7 @@ import java.util.Date;
 import java.util.Set;
 
 @Entity
-@Table(name="customer")
+@Table(name="customers")
 @Getter
 @Setter
 
@@ -26,9 +26,9 @@ public class Customer {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "customer_id")
     private Long id;
-    @Column(name = "first_name")
+    @Column(name = "customer_first_name")
     private String firstName;
-    @Column(name = "last_name")
+    @Column(name = "customer_last_name")
     private String lastName;
     @Column(name = "address")
     private String address;
@@ -42,9 +42,12 @@ public class Customer {
     @Column(name = "last_update")
     @UpdateTimestamp
     private Date lastUpdate;
+    /*
     @OneToMany
     @JoinColumn(name = "Division_ID",nullable = false)
     private Division division;
+
+     */
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "customer")
     private Set<Cart> carts;
 

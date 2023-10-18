@@ -10,7 +10,7 @@ import java.util.Date;
 import java.util.Set;
 
 @Entity
-@Table(name="cart_item")
+@Table(name="cart_items")
 @Getter
 @Setter
 public class CartItem {
@@ -23,8 +23,11 @@ public class CartItem {
     @ManyToOne
     @JoinColumn(name ="vacation", nullable = false)
     private Vacation vacation;
+    /*
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "excursions")
     private Set<Excursion> excursions;
+
+     */
 
     //mapped by vacation(PK)
     @ManyToOne

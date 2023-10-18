@@ -33,7 +33,9 @@ public class Excursion {
     @ManyToOne
     @JoinColumn(name ="vacation", nullable = false)
     private Vacation vacation;
-
+/*
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "cart")
     private Set<CartItem> cartItem;
+
+ */
 }
