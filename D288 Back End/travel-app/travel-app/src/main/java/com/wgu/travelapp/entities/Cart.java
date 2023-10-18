@@ -18,8 +18,6 @@ import java.util.Set;
 @Getter
 @Setter
 public class Cart {
-
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name ="cart_id")
@@ -42,6 +40,6 @@ public class Cart {
     @ManyToOne
     @JoinColumn(name ="customer_id", nullable = false)
     private Customer customer;
-    @ManyToMany(cascade = CascadeType.ALL, mappedBy = "cart")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "cart")
     private Set<CartItem> cartItem;
 }
