@@ -16,13 +16,17 @@ import java.util.Set;
 public class CartItem {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "customer_id")
+    @Column(name = "cart_item_id")
     private Long id;
-    @ManyToOne //update later
+
+    //TODO check relationship
+    @ManyToOne
     @JoinColumn(name ="vacation", nullable = false)
     private Vacation vacation;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "excursions")
     private Set<Excursion> excursions;
+
+    //mapped by vacation(PK)
     @ManyToOne
     @JoinColumn(name ="cart", nullable = false)
     private Cart cart;
