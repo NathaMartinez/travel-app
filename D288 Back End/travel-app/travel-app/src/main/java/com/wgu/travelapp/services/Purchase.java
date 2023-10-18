@@ -1,0 +1,15 @@
+package com.wgu.travelapp.services;
+
+import com.wgu.travelapp.entities.Cart;
+import com.wgu.travelapp.entities.CartItem;
+import com.wgu.travelapp.entities.Customer;
+import lombok.Data;
+
+import java.util.Set;
+
+@Data
+public class Purchase {
+    private Customer customer;
+    private Cart cart;
+    private Set<CartItem> cartItems;
+}
