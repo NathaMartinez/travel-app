@@ -55,6 +55,20 @@ public class Customer {
     @PrimaryKeyJoinColumn
     private Cart cart;
 
+    public Customer(String firstName, String lastName, String address, String postalCode, String phone) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.address = address;
+        this.postalCode = postalCode;
+        this.phone = phone;
+    }
+
+    public Customer() {
+
+
+
+    }
+
     public void add(Cart cart) {
         if(cart != null) {
             
