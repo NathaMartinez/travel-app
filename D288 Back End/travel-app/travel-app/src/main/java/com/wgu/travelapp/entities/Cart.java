@@ -43,7 +43,7 @@ public class Cart {
     @JoinColumn(name ="customer_id", nullable = false)
     private Customer customer;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "cart")
-    private Set<CartItem> cartItem;
+    private Set<CartItem> cartItem = new HashSet<>();
 
     public void add(CartItem item) {
         if(item != null) {

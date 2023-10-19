@@ -1,6 +1,9 @@
 package com.wgu.travelapp.services;
 
+import com.wgu.travelapp.dao.CartRepository;
 import com.wgu.travelapp.dao.CustomerRepository;
+import com.wgu.travelapp.dto.Purchase;
+import com.wgu.travelapp.dto.PurchaseResponse;
 import com.wgu.travelapp.entities.Cart;
 import com.wgu.travelapp.entities.CartItem;
 import com.wgu.travelapp.entities.Customer;
@@ -13,6 +16,7 @@ import java.util.UUID;
 @Service
 public class CheckoutServiceImpl implements CheckoutService{
     private CustomerRepository customerRepository;
+    private CartRepository cartRepository;
     public CheckoutServiceImpl(CustomerRepository customerRepository){
         this.customerRepository = customerRepository;
     }
@@ -21,6 +25,7 @@ public class CheckoutServiceImpl implements CheckoutService{
     public PurchaseResponse placeOrder(Purchase purchase) {
         //retrieve the order info from Purchase response
         Cart cart = purchase.getCart();
+
         //generate tracking number
         String orderTrackingNumber = generateOrderTrackingNumber();
         cart.setOrderTrackingNumber(orderTrackingNumber);
@@ -37,6 +42,7 @@ public class CheckoutServiceImpl implements CheckoutService{
         //save o the database
 
         customerRepository.save(customer);
+
 
         //return a response: Utilize Purchase response, and pass in generated order tracking number
         return new PurchaseResponse(orderTrackingNumber);

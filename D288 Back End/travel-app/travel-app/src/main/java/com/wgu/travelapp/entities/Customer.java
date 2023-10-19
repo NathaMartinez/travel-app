@@ -51,6 +51,9 @@ public class Customer {
      */
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "customer")
     private Set<Cart> carts;
+    @OneToOne
+    @PrimaryKeyJoinColumn
+    private Cart cart;
 
     public void add(Cart cart) {
         if(cart != null) {

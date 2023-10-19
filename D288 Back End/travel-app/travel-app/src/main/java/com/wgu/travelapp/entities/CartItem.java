@@ -21,7 +21,7 @@ public class CartItem {
 
     //TODO check relationship
     @ManyToOne
-    @JoinColumn(name ="vacation_id", nullable = false)
+    @JoinColumn(name ="vacation", nullable = false)
     private Vacation vacation;
     /*
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "excursions")
@@ -31,7 +31,7 @@ public class CartItem {
 
     //mapped by vacation(PK)
     @ManyToOne
-    @JoinColumn(name ="cart_id", nullable = false)
+    @JoinColumn(name ="cart", nullable = false)
     private Cart cart;
     @Column(name = "create_date")
     @CreationTimestamp
