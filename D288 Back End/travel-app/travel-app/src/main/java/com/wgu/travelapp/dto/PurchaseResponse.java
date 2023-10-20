@@ -1,6 +1,5 @@
 package com.wgu.travelapp.dto;
 
-
 import lombok.Data;
 
 @Data

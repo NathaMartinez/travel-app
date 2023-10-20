@@ -11,7 +11,7 @@ import java.util.Set;
 public class Purchase {
     private Customer customer;
     private Customer address;
-    private Customer postal_code;
+    private Customer postalCode;
     private Cart cart;
     private Set<CartItem> cartItems;
 }

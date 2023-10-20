@@ -1,6 +1,5 @@
 package com.wgu.travelapp.dao;
 
-import com.wgu.travelapp.entities.Cart;
 import com.wgu.travelapp.entities.Vacation;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.web.bind.annotation.CrossOrigin;

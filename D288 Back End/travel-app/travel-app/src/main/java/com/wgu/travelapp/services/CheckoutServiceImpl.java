@@ -17,17 +17,15 @@ import java.util.UUID;
 @Service
 public class CheckoutServiceImpl implements CheckoutService{
     private CustomerRepository customerRepository;
-    private CartRepository cartRepository;
     public CheckoutServiceImpl(CustomerRepository customerRepository){
         this.customerRepository = customerRepository;
     }
     @Override
     @Transactional
     public PurchaseResponse placeOrder(Purchase purchase) {
-
         //retrieve the order info from Purchase response
         Cart cart = purchase.getCart();
-
+        Customer customer = purchase.getCustomer();
         //generate tracking number
         String orderTrackingNumber = generateOrderTrackingNumber();
         cart.setOrderTrackingNumber(orderTrackingNumber);
@@ -37,18 +35,17 @@ public class CheckoutServiceImpl implements CheckoutService{
         cartItems.forEach(item -> cart.add(item));
 
         //populate order wth customer info:postal code
-
+        customer.setAddress(String.valueOf(purchase.getAddress()));
+        customer.setPostalCode(String.valueOf(purchase.getPostalCode()));
         //populate customer with order
-        Customer customer = purchase.getCustomer();
         customer.add(cart);
-        //save o the database
 
+        //save to the database
         customerRepository.save(customer);
-
         cart.setStatus(StatusType.ordered);
+
         //return a response: Utilize Purchase response, and pass in generated order tracking number
         return new PurchaseResponse(orderTrackingNumber);
-
     }
 
     private String generateOrderTrackingNumber() {
