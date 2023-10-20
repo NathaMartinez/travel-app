@@ -10,8 +10,6 @@ import java.util.Set;
 @Data
 public class Purchase {
     private Customer customer;
-    private Customer address;
-    private Customer postalCode;
     private Cart cart;
     private Set<CartItem> cartItems;
 }

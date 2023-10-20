@@ -23,6 +23,7 @@ public class CheckoutServiceImpl implements CheckoutService{
     @Override
     @Transactional
     public PurchaseResponse placeOrder(Purchase purchase) {
+
         //retrieve the order info from Purchase response
         Cart cart = purchase.getCart();
         Customer customer = purchase.getCustomer();
@@ -35,8 +36,7 @@ public class CheckoutServiceImpl implements CheckoutService{
         cartItems.forEach(item -> cart.add(item));
 
         //populate order wth customer info:postal code
-        customer.setAddress(String.valueOf(purchase.getAddress()));
-        customer.setPostalCode(String.valueOf(purchase.getPostalCode()));
+
         //populate customer with order
         customer.add(cart);
 

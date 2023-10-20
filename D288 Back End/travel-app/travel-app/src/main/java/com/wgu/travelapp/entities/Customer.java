@@ -23,10 +23,10 @@ public class Customer {
     private String firstName;
     @Column(name = "customer_last_name",nullable = false)
     private String lastName;
-    @Column(name = "address",nullable = false)
+    @Column(name = "address")
     private String address;
-    @Column(name = "postal_code",nullable = false)
-    private String postalCode;
+    @Column(name = "postal_code")
+    private String postal_code;
     @Column(name = "phone",nullable = false)
     private String phone;
     @Column(name = "create_date")
@@ -36,9 +36,11 @@ public class Customer {
     @UpdateTimestamp
     private Date lastUpdate;
 
+    /*
     @ManyToOne
     @JoinColumn(name = "Division_id")
     private Division division;
+     */
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "customer")
     private Set<Cart> carts;
@@ -48,11 +50,11 @@ public class Customer {
 
 
     //For sample data
-    public Customer(String firstName, String lastName, String address, String postalCode, String phone) {
+    public Customer(String firstName, String lastName, String address, String postal_code, String phone) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.address = address;
-        this.postalCode = postalCode;
+        this.postal_code = postal_code;
         this.phone = phone;
     }
 
