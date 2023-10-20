@@ -7,6 +7,7 @@ import com.wgu.travelapp.dto.PurchaseResponse;
 import com.wgu.travelapp.entities.Cart;
 import com.wgu.travelapp.entities.CartItem;
 import com.wgu.travelapp.entities.Customer;
+import com.wgu.travelapp.entities.StatusType;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
@@ -23,6 +24,7 @@ public class CheckoutServiceImpl implements CheckoutService{
     @Override
     @Transactional
     public PurchaseResponse placeOrder(Purchase purchase) {
+
         //retrieve the order info from Purchase response
         Cart cart = purchase.getCart();
 
@@ -43,9 +45,10 @@ public class CheckoutServiceImpl implements CheckoutService{
 
         customerRepository.save(customer);
 
-
+        cart.setStatus(StatusType.ordered);
         //return a response: Utilize Purchase response, and pass in generated order tracking number
         return new PurchaseResponse(orderTrackingNumber);
+
     }
 
     private String generateOrderTrackingNumber() {

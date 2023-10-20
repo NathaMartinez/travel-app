@@ -27,15 +27,12 @@ public class Vacation {
     private BigDecimal travel_price;
     @Column(name ="image_url")
     private String image_URL;
-
     @Column(name = "create_date")
     @CreationTimestamp
     private Date createDate;
     @Column(name = "last_update")
     @UpdateTimestamp
     private Date lastUpdate;
-
-
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "vacation")
     private Set<Excursion> excursions;
 }
