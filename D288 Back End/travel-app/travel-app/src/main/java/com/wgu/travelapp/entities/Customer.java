@@ -27,15 +27,15 @@ public class Customer {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "customer_id")
     private Long id;
-    @Column(name = "customer_first_name")
+    @Column(name = "customer_first_name", nullable = false)
     private String firstName;
-    @Column(name = "customer_last_name")
+    @Column(name = "customer_last_name",nullable = false)
     private String lastName;
-    @Column(name = "address")
+    @Column(name = "address",nullable = false)
     private String address;
-    @Column(name = "postal_code")
+    @Column(name = "postal_code",nullable = false)
     private String postalCode;
-    @Column(name = "phone")
+    @Column(name = "phone",nullable = false)
     private String phone;
     @Column(name = "create_date")
     @CreationTimestamp
@@ -47,7 +47,6 @@ public class Customer {
     @OneToMany
     @JoinColumn(name = "Division_ID",nullable = false)
     private Division division;
-
      */
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "customer")
     private Set<Cart> carts;
